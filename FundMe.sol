@@ -17,7 +17,7 @@ contract FundMe {
     }
     
     function fund() public payable {
-        uint256 mimimumUSD = 50 * 10 * 18;
+        uint256 mimimumUSD = 50 * 10 ** 18;
         require(getConversionRate(msg.value) >= mimimumUSD, "You need to spend more ETH!");
         addressToAmountFunded[msg.sender] += msg.value;
         funders.push(msg.sender);

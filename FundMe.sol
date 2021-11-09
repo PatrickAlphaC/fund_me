@@ -47,7 +47,7 @@ contract FundMe {
     }
     
     function withdraw() payable onlyOwner public {
-        msg.sender.transfer(address(this).balance);
+        payable(msg.sender).transfer(address(this).balance);
         
         for (uint256 funderIndex=0; funderIndex < funders.length; funderIndex++){
             address funder = funders[funderIndex];

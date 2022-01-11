@@ -68,7 +68,7 @@ contract FundMe {
     // and 
     // if true, withdraw function will be executed 
     function withdraw() payable onlyOwner public {
-        msg.sender.transfer(address(this).balance);
+        payable(msg.sender).transfer(address(this).balance);
         
         //iterate through all the mappings and make them 0
         //since all the deposited amount has been withdrawn

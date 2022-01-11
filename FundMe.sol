@@ -56,7 +56,7 @@ contract FundMe {
         return ethAmountInUsd;
     }
     
-    //modifier: https://medium.com/coinmonks/solidity-tutorial-all-about-modifiers-a86cf81c14cb#:~:text=The%20Solidity%20documentation%20define%20a%20modifier%20as%20follow%3A,of%20the%20function%20to%20which%20it%20is%20attached.
+    //modifier: https://medium.com/coinmonks/solidity-tutorial-all-about-modifiers-a86cf81c14cb
     modifier onlyOwner {
     	//is the message sender owner of the contract?
         require(msg.sender == owner);

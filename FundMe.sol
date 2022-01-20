@@ -5,7 +5,7 @@
 pragma solidity >=0.6.6 <0.9.0;
 
 // Get the latest ETH/USD price from chainlink price feed
-import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
 import "@chainlink/contracts/src/v0.6/vendor/SafeMathChainlink.sol";
 
 contract FundMe {
@@ -68,7 +68,12 @@ contract FundMe {
     // and 
     // if true, withdraw function will be executed 
     function withdraw() payable onlyOwner public {
-        payable(msg.sender).transfer(address(this).balance);
+    
+    	// If you are using version eight (v0.8) of chainlink aggregator interface,
+	// you will need to change the code below to
+	// payable(msg.sender).transfer(address(this).balance);
+        msg.sender.transfer(address(this).balance);
+
         
         //iterate through all the mappings and make them 0
         //since all the deposited amount has been withdrawn

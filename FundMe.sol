@@ -68,7 +68,12 @@ contract FundMe {
     // and 
     // if true, withdraw function will be executed 
     function withdraw() payable onlyOwner public {
+    
+    	// If you are using version eight (v0.8) of chainlink aggregator interface,
+	// you will need to change the code below to
+	// payable(msg.sender).transfer(address(this).balance);
         msg.sender.transfer(address(this).balance);
+
         
         //iterate through all the mappings and make them 0
         //since all the deposited amount has been withdrawn

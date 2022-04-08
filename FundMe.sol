@@ -6,11 +6,13 @@ pragma solidity >=0.6.6 <0.9.0;
 
 // Get the latest ETH/USD price from chainlink price feed
 import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
-import "@chainlink/contracts/src/v0.6/vendor/SafeMathChainlink.sol";
+import "@openzeppelin/contracts/utils/math/SafeCast.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract FundMe {
 	// safe math library check uint256 for integer overflows
-    using SafeMathChainlink for uint256;
+    using SafeCast for int256;
+    using SafeMath for uint256;
     
     //mapping to store which address depositeded how much ETH
     mapping(address => uint256) public addressToAmountFunded;

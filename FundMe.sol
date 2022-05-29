@@ -69,8 +69,8 @@ contract FundMe {
     // if true, withdraw function will be executed 
     function withdraw() payable onlyOwner public {
     
-    	// If you are using version eight (v0.8) of chainlink aggregator interface,
-	// you will need to change the code below to
+    	// If you are using Solidity version v0.8.0 or above,
+	// you will need to modify the code below to
 	// payable(msg.sender).transfer(address(this).balance);
         msg.sender.transfer(address(this).balance);
 

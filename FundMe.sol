@@ -2,7 +2,7 @@
 
 // Smart contract that lets anyone deposit ETH into the contract
 // Only the owner of the contract can withdraw the ETH
-pragma solidity ^0.6.6 <0.9.0;
+pragma solidity ^0.8.0;
 
 // Get the latest ETH/USD price from chainlink price feed
 
@@ -83,8 +83,10 @@ contract FundMe {
     // onlyOwner modifer will first check the condition inside it
     // and
     // if true, withdraw function will be executed
-    function withdraw() public payable onlyOwner {
-        msg.sender.transfer(address(this).balance);
+    function withdraw() public {
+    address payable sender = payable(msg.sender);
+    sender.transfer(address(this).balance);
+    }
 
         //iterate through all the mappings and make them 0
         //since all the deposited amount has been withdrawn
